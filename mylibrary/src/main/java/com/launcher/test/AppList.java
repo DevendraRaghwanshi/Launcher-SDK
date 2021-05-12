@@ -20,9 +20,13 @@ public class AppList {
     private Context context;
     private ArrayList<AppInfo> list;
 
+    private LauncherListener listener;
 
-    public AppList(Context context) {
+
+    public AppList(Context context, LauncherListener listener) {
         this.context = context;
+        this.listener = listener;
+
         new MyThread().execute();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_PACKAGE_ADDED);
@@ -38,8 +42,13 @@ public class AppList {
         public void onReceive(Context context, Intent intent) {
             Log.i("Enter", "Enters here");
             Toast.makeText(context, "App Installed!!!!.", Toast.LENGTH_LONG).show();
+            listener.appInstalled();
         }
     };
+
+    public void reLoad() {
+        new MyThread().execute();
+    }
 
 
     public class MyThread extends AsyncTask<Void, Void, Boolean> {
@@ -72,7 +81,7 @@ public class AppList {
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
             Collections.sort(list, (object1, object2) -> object1.label.compareTo(object2.label));
-
+            listener.appsLoaded();
         }
     }
 }
