@@ -1,4 +1,4 @@
-package com.test.launcher;
+package com.launcher.test;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.test.launcher.model.AppInfo;
+import com.launcher.test.model.AppInfo;
 
 import java.util.ArrayList;
 import java.util.Collections;
