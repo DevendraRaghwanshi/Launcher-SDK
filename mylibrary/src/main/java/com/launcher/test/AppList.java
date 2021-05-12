@@ -55,6 +55,12 @@ public class AppList {
     public class MyThread extends AsyncTask<Void, Void, Boolean> {
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            list.clear();
+        }
+
+        @Override
         protected Boolean doInBackground(Void... Params) {
             PackageManager pm = context.getPackageManager();
 
