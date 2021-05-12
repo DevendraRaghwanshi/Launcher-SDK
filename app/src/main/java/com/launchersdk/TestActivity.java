@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import com.launcher.test.AppList;
 import com.launcher.test.LauncherListener;
+import com.launcher.test.model.AppInfo;
+
+import java.util.ArrayList;
 
 public class TestActivity extends AppCompatActivity implements LauncherListener {
     private AppList appList;
@@ -20,7 +23,7 @@ public class TestActivity extends AppCompatActivity implements LauncherListener 
     }
 
     @Override
-    public void appsLoaded() {
+    public void appsLoaded(ArrayList<AppInfo> list) {
 
     }
 

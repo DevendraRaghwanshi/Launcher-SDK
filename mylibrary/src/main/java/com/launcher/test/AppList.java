@@ -81,7 +81,7 @@ public class AppList {
         protected void onPostExecute(Boolean result) {
             super.onPostExecute(result);
             Collections.sort(list, (object1, object2) -> object1.label.compareTo(object2.label));
-            listener.appsLoaded();
+            listener.appsLoaded(list);
         }
     }
 }
