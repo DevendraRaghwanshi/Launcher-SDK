@@ -26,6 +26,7 @@ public class AppList {
     public AppList(Context context, LauncherListener listener) {
         this.context = context;
         this.listener = listener;
+        list = new ArrayList<>();
 
         new MyThread().execute();
         IntentFilter intentFilter = new IntentFilter();
